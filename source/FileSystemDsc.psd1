@@ -15,10 +15,10 @@
     Copyright          = 'Copyright the DSC Community contributors. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description        = 'This module contains DSC resources for managing file system.'
+    Description        = 'This module contains DSC resources for managing file systems.'
 
     # Minimum version of the Windows PowerShell engine required by this module
-    PowerShellVersion  = '5.0'
+    PowerShellVersion  = '5.1'
 
     # Minimum version of the common language runtime (CLR) required by this module
     CLRVersion         = '4.0'

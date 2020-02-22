@@ -19,5 +19,6 @@
     'DscResource.AnalyzerRules' = 'latest'
     xDscResourceDesigner        = 'latest'
     'DscResource.DocGenerator'  = 'latest'
+    'DscResource.Common'        = '0.2.0'
 }
 

@@ -2,10 +2,10 @@ TOPIC
     about_FileSystemDsc
 
 SHORT DESCRIPTION
-    This module contains DSC resources for managing file system.
+    This module contains DSC resources for managing file systems.
 
 LONG DESCRIPTION
-    This module contains DSC resources for managing file system.
+    This module contains DSC resources for managing file systems.
 
 EXAMPLES
     PS C:\> Get-DscResource -Module FileSystemDsc

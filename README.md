@@ -7,7 +7,8 @@
 [![PowerShell Gallery (with prereleases)](https://img.shields.io/powershellgallery/vpre/FileSystemDsc?label=FileSystemDsc%20Preview)](https://www.powershellgallery.com/packages/FileSystemDsc/)
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/FileSystemDsc?label=FileSystemDsc)](https://www.powershellgallery.com/packages/FileSystemDsc/)
 
-This module contains DSC resources for managing file system.
+This module contains DSC resources for managing file systems. This module
+aim to be cross platform.
 
 ## Code of Conduct
 
