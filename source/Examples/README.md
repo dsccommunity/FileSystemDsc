@@ -1,7 +1,7 @@
 # Examples
 
 This will help to understand how to setup certain scenarios with the
-FIleSystemDsx resource module.
+FileSystemDsc resource module.
 
 ## Resource examples
 

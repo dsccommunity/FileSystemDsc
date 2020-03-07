@@ -1,4 +1,5 @@
 $configFile = [System.IO.Path]::ChangeExtension($MyInvocation.MyCommand.Path, 'json')
+
 if (Test-Path -Path $configFile)
 {
     <#
@@ -178,7 +179,7 @@ configuration DSC_FileSystemAccessRule_RemoveRulePath1_Config
 <#
     .SYNOPSIS
         Removes only the specified access rules for the identity when the
-        identity in the current state have more rights than desired state.
+        identity in the current state has more rights than desired state.
 
     .NOTES
         This requires that the identity was assigned the Modify right in

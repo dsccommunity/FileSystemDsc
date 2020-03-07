@@ -9,7 +9,7 @@ ConvertFrom-StringData @'
     PossibleClusterResourceOwner = The node '{0}' is a possible owner for the path '{1}' but it is currently not the active node. (FSAR0006)
     NotPossibleClusterResourceOwner = The node '{0}' is not a possible owner for the path '{1}'. (FSAR0007)
     NoClusterDiskPartitionFound = No cluster disk partition was found that the path '{0}' could belong to. (FSAR0008)
-    NodeIsNotClusterMember = 'Node does not belong to a Windows Server Failover Cluster. (FSAR0009)
+    NodeIsNotClusterMember = Node does not belong to a Windows Server Failover Cluster. (FSAR0009)
     PathExist = Found the path on the node. Evaluating access rules for identity '{0}'. (FSAR0010)
     IsNotActiveNode = The node '{0}' is not actively hosting the path '{1}'. Exiting the test. (FSAR0011)
     AbsentRightsNotInDesiredState = The identity '{0}' has the rights '{1}', but expected the identity to have no rights. (FSAR0012)

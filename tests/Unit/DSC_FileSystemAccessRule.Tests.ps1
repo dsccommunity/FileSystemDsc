@@ -248,7 +248,7 @@ try
                 }
 
                 Context 'When the configuration is present' {
-                    Context 'When the path exist' {
+                    Context 'When the path exists' {
                         BeforeAll {
                             Mock -CommandName Get-Acl -MockWith {
                                 return New-Object -TypeName PSObject |

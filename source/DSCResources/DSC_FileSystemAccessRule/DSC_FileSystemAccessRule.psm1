@@ -504,9 +504,10 @@ function Test-TargetResource
                 foreach ($right in $Rights)
                 {
                     $rightNotAllowed = [System.Security.AccessControl.FileSystemRights] $right
+                    $currentRights = [System.Security.AccessControl.FileSystemRights] $currentState.Rights
 
                     # If any rights that we want to deny are individually a full subset of existing rights.
-                    $currentRightResult = -not ($rightNotAllowed -eq ($rightNotAllowed -band ([System.Security.AccessControl.FileSystemRights] $currentState.Rights)))
+                    $currentRightResult = -not ($rightNotAllowed -eq ($rightNotAllowed -band $currentRights))
 
                     if (-not $currentRightResult)
                     {
