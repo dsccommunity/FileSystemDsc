@@ -5,9 +5,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- FileSystemDsc
+  - Fixed FileSystemAccessRule error [(#3)](https://github.com/dsccommunity/FileSystemDsc/issues/3)
+
 ## [1.1.0] - 2020-03-09
 
 ### Added
 
 - FileSystemDsc
   - Added resource FileSystemAccessRule
+  
