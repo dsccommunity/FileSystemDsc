@@ -136,7 +136,7 @@ function Get-TargetResource
             $script:localizedData.PathExist -f $Identity
         )
 
-        $acl = Get-Acl -Path $Path
+        $acl = Get-ACLAccess -Path $Path
         $accessRules = $acl.Access
 
         <#
@@ -261,7 +261,7 @@ function Set-TargetResource
         New-ObjectNotFoundException -Message $errorMessage
     }
 
-    $acl = Get-Acl -Path $Path
+    $acl = Get-ACLAccess -Path $Path
 
     if ($Ensure -eq 'Present')
     {
@@ -581,4 +581,8 @@ function Test-TargetResource
     }
 
     return $result
+}
+ Function Get-ACLAccess($Path)
+{
+    return (Get-Item -Path $Path).GetAccessControl('Access')
 }
