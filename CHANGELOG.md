@@ -8,7 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - FileSystemDsc
-  - Fixed FileSystemAccessRule error ([issue #3](https://github.com/dsccommunity/FileSystemDsc/issues/3)).
+  - Fixed an issue where the owner of ACL was written back resulting in an
+    error "The security identifier is not allowed to be the owner of this
+    object" ([issue #3](https://github.com/dsccommunity/FileSystemDsc/issues/3)).
 
 ## [1.1.0] - 2020-03-09
 
