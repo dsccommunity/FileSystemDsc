@@ -806,6 +806,8 @@ try
                     return New-Object -TypeName PSObject |
                         Add-Member -MemberType 'ScriptMethod' -Name 'GetAccessControl' -Value {
                             return New-Object -TypeName PSObject |
+                                # Regression test for issue #3
+                                Add-Member -MemberType 'NoteProperty' -Name 'Owner' -Value $null -PassThru |
                                 Add-Member -MemberType 'NoteProperty' -Name 'Access' -Value @(
                                     New-Object -TypeName PSObject |
                                         Add-Member -MemberType 'NoteProperty' -Name 'IdentityReference' -Value $mockIdentity -PassThru |
@@ -820,6 +822,9 @@ try
 
                 $result.Access[0].IdentityReference | Should -Be $mockIdentity
                 $result.Access[0].FileSystemRights | Should -Be $mockFileSystemRights
+
+                # Regression test for issue #3
+                $result.Owner | Should -BeNullOrEmpty
             }
         }
     }
