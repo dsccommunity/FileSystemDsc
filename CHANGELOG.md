@@ -5,6 +5,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- FileSystemDsc
+  - Added issue and pull request templates to help contributors.
+
+### Changed
+
+- FileSystemDsc
+  - Only run CI pipeline on branch `master` when there are changes to files
+    inside the `source` folder.
+  - The regular expression for `minor-version-bump-message` in the file
+    `GitVersion.yml` was changed to only raise minor version when the
+    commit message contain the word `add`, `adds`, `minor`, `feature`,
+    or `features`.
+
 ## [1.1.1] - 2020-04-19
 
 ### Fixed
