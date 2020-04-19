@@ -13,9 +13,6 @@ $script:localizedData = Get-LocalizedData -DefaultUICulture 'en-US'
 
     .PARAMETER Identity
         The identity to set permissions for.
-
-    .NOTES
-        This function uses Get-Acl that was first introduced in Windows Powershell 5.1.
 #>
 function Get-TargetResource
 {
@@ -199,7 +196,7 @@ function Get-TargetResource
         Not used in Set-TargetResource.
 
     .NOTES
-        This function uses Get-Acl and Set-Acl that was first introduced in
+        This function uses Set-Acl that was first introduced in
         Windows Powershell 5.1.
 #>
 function Set-TargetResource
@@ -582,7 +579,34 @@ function Test-TargetResource
 
     return $result
 }
- Function Get-ACLAccess($Path)
+
+<#
+    .SYNOPSIS
+        This function is wrapper for getting the DACL for the specified path.
+
+    .PARAMETER Path
+        The path to the item that should have permissions set.
+
+    .NOTES
+        "Well the limited features of Get-ACL means that you always read the full
+        security descriptor including the owner whether you intended to or not.
+        That means that when you come to write to the object based on a modified
+        version of what you read, you are attempting to write back to the owner
+        attribute.
+
+        The GetAccessControl('Access') method reads only the DACL so when you
+        write it back you are not trying to write something you did not intend to."
+        https://www.mickputley.net/2015/11/set-acl-security-identifier-is-not.html
+        https://github.com/dsccommunity/FileSystemDsc/issues/3
+#>
+function Get-ACLAccess
 {
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Path
+    )
     return (Get-Item -Path $Path).GetAccessControl('Access')
 }

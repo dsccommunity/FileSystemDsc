@@ -55,7 +55,7 @@ try
                     Context 'When the node does not belong to a cluster' {
                         BeforeAll {
                             Mock -CommandName Write-Warning
-                            Mock -CommandName Get-Acl
+                            Mock -CommandName Get-ACLAccess
 
                             Mock -CommandName Test-Path -MockWith {
                                 return $false
@@ -67,7 +67,7 @@ try
                         It 'Should not throw and output the correct warning message' {
                             { $script:result = Get-TargetResource @mockGetTargetResourceParameters } | Should -Not -Throw
 
-                            Assert-MockCalled -CommandName Get-Acl -Exactly -Times 0 -Scope It
+                            Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 0 -Scope It
                             Assert-MockCalled -CommandName Test-Path -Times 1 -Exactly -Scope It
 
                             Assert-MockCalled -CommandName Get-CimInstance -ParameterFilter {
@@ -93,7 +93,7 @@ try
                     Context 'When no cluster disk partition is found that uses the path' {
                         BeforeAll {
                             Mock -CommandName Write-Warning
-                            Mock -CommandName Get-Acl
+                            Mock -CommandName Get-ACLAccess
                             Mock -CommandName Get-CimAssociatedInstance
                             Mock -CommandName Test-Path -MockWith {
                                 return $false
@@ -121,7 +121,7 @@ try
                         It 'Should not throw and output the correct warning message' {
                             { $script:result = Get-TargetResource @mockGetTargetResourceParameters } | Should -Not -Throw
 
-                            Assert-MockCalled -CommandName Get-Acl -Exactly -Times 0 -Scope It
+                            Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 0 -Scope It
                             Assert-MockCalled -CommandName Test-Path -Times 1 -Exactly -Scope It
 
                             Assert-MockCalled -CommandName Get-CimInstance -ParameterFilter {
@@ -158,7 +158,7 @@ try
                 Context 'When the current node is not a possible cluster resource owner' {
                     BeforeAll {
                         Mock -CommandName Write-Warning
-                        Mock -CommandName Get-Acl
+                        Mock -CommandName Get-ACLAccess
                         Mock -CommandName Test-Path -MockWith {
                             return $false
                         }
@@ -208,7 +208,7 @@ try
                     It 'Should not throw and output the correct warning message' {
                         { $script:result = Get-TargetResource @mockGetTargetResourceParameters } | Should -Not -Throw
 
-                        Assert-MockCalled -CommandName Get-Acl -Exactly -Times 0 -Scope It
+                        Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 0 -Scope It
                         Assert-MockCalled -CommandName Test-Path -Times 1 -Exactly -Scope It
 
                         Assert-MockCalled -CommandName Get-CimInstance -ParameterFilter {
@@ -250,7 +250,7 @@ try
                 Context 'When the configuration is present' {
                     Context 'When the path exists' {
                         BeforeAll {
-                            Mock -CommandName Get-Acl -MockWith {
+                            Mock -CommandName Get-ACLAccess -MockWith {
                                 return New-Object -TypeName PSObject |
                                     Add-Member -MemberType 'NoteProperty' -Name 'Access' -Value @(
                                         New-Object -TypeName PSObject |
@@ -269,7 +269,7 @@ try
                         It 'Should get the access rules without throwing' {
                             { $script:result = Get-TargetResource @mockGetTargetResourceParameters } | Should -Not -Throw
 
-                            Assert-MockCalled -CommandName Get-Acl -Exactly -Times 1 -Scope It
+                            Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 1 -Scope It
                         }
 
                         It 'Should return the state as present' {
@@ -292,7 +292,7 @@ try
                     Context 'When path is not found on the node, but the path is found in a cluster disk partition and the current node is a possible cluster resource owner' {
                         BeforeAll {
                             Mock -CommandName Write-Warning
-                            Mock -CommandName Get-Acl
+                            Mock -CommandName Get-ACLAccess
                             Mock -CommandName Test-Path -MockWith {
                                 return $false
                             }
@@ -347,7 +347,7 @@ try
                         It 'Should not throw and should not output a warning message' {
                             { $script:result = Get-TargetResource @mockGetTargetResourceParameters } | Should -Not -Throw
 
-                            Assert-MockCalled -CommandName Get-Acl -Exactly -Times 0 -Scope It
+                            Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 0 -Scope It
                             Assert-MockCalled -CommandName Test-Path -Times 1 -Exactly -Scope It
 
                             Assert-MockCalled -CommandName Get-CimInstance -ParameterFilter {
@@ -659,7 +659,7 @@ try
                                     } -PassThru -Force
                 }
 
-                Mock -CommandName Get-Acl -MockWith $mockGetAcl
+                Mock -CommandName Get-ACLAccess -MockWith $mockGetAcl
                 Mock -CommandName Set-Acl
             }
 
@@ -710,7 +710,7 @@ try
                         It 'Should call the correct methods and mocks to remove the permissions' {
                             { Set-TargetResource @mockSetTargetResourceParameters } | Should -Not -Throw
 
-                            Assert-MockCalled -CommandName Get-Acl -Exactly -Times 1 -Scope It
+                            Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 1 -Scope It
 
                             $script:SetAccessRuleMethodCallCount | Should -Be 0
                             $script:PurgeAccessRulesMethodCallCount | Should -Be 0
@@ -731,7 +731,7 @@ try
                             It 'Should call the correct methods and mocks to remove the permissions' {
                                 { Set-TargetResource @mockSetTargetResourceParameters } | Should -Not -Throw
 
-                                Assert-MockCalled -CommandName Get-Acl -Exactly -Times 1 -Scope It
+                                Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 1 -Scope It
 
                                 $script:SetAccessRuleMethodCallCount | Should -Be 0
                                 $script:PurgeAccessRulesMethodCallCount | Should -Be 1
@@ -750,7 +750,7 @@ try
                             It 'Should call the correct methods and mocks to remove the permissions' {
                                 { Set-TargetResource @mockSetTargetResourceParameters } | Should -Not -Throw
 
-                                Assert-MockCalled -CommandName Get-Acl -Exactly -Times 1 -Scope It
+                                Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 1 -Scope It
 
                                 $script:SetAccessRuleMethodCallCount | Should -Be 0
                                 $script:PurgeAccessRulesMethodCallCount | Should -Be 1
@@ -771,7 +771,7 @@ try
                     It 'Should call the correct methods and mocks to set the permissions' {
                         { Set-TargetResource @mockSetTargetResourceParameters } | Should -Not -Throw
 
-                        Assert-MockCalled -CommandName Get-Acl -Exactly -Times 1 -Scope It
+                        Assert-MockCalled -CommandName Get-ACLAccess -Exactly -Times 1 -Scope It
 
                         $script:SetAccessRuleMethodCallCount | Should -Be 1
                         $script:PurgeAccessRulesMethodCallCount | Should -Be 0
@@ -797,6 +797,29 @@ try
                         { Set-TargetResource @mockSetTargetResourceParameters } | Should -Throw $mockErrorMessage
                     }
                 }
+            }
+        }
+
+        Describe 'DSC_FileSystemAccessRule\Get-ACLAccess' -Tag 'Helper' {
+            BeforeAll {
+                Mock -CommandName Get-Item -MockWith {
+                    return New-Object -TypeName PSObject |
+                        Add-Member -MemberType 'ScriptMethod' -Name 'GetAccessControl' -Value {
+                            return New-Object -TypeName PSObject |
+                                Add-Member -MemberType 'NoteProperty' -Name 'Access' -Value @(
+                                    New-Object -TypeName PSObject |
+                                        Add-Member -MemberType 'NoteProperty' -Name 'IdentityReference' -Value $mockIdentity -PassThru |
+                                            Add-Member -MemberType 'NoteProperty' -Name 'FileSystemRights' -Value $mockFileSystemRights -PassThru -Force
+                                ) -PassThru -Force
+                        } -PassThru -Force
+                }
+            }
+
+            It 'Should return the correct access control list (ACL)' {
+                $result = Get-ACLAccess -Path 'AnyPath'
+
+                $result.Access[0].IdentityReference | Should -Be $mockIdentity
+                $result.Access[0].FileSystemRights | Should -Be $mockFileSystemRights
             }
         }
     }
