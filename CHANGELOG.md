@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - FileSystemDsc
+  - Renamed `master` branch to `main` ([issue #11](https://github.com/dsccommunity/FileSystemDsc/issues/11)).
   - Only run the CI pipeline on branch `master` when there are changes to
     files inside the `source` folder.
   - The regular expression for `minor-version-bump-message` in the file
