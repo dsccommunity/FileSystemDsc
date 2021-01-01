@@ -70,6 +70,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_Prerequisites_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -82,7 +86,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -101,6 +105,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_NewRulePath1_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -112,7 +120,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -135,7 +143,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
 
         It 'Should have set the resource and all the parameters should match' {
             $resourceCurrentState = $script:currentConfiguration | Where-Object -FilterScript {
-                $_.ConfigurationName -eq $_ `
+                $_.ConfigurationName -eq $configurationName `
                 -and $_.ResourceId -eq $resourceId
             }
 
@@ -155,6 +163,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_NewRulePath2_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -166,7 +178,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -189,7 +201,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
 
         It 'Should have set the resource and all the parameters should match' {
             $resourceCurrentState = $script:currentConfiguration | Where-Object -FilterScript {
-                $_.ConfigurationName -eq $_ `
+                $_.ConfigurationName -eq $configurationName `
                 -and $_.ResourceId -eq $resourceId
             }
 
@@ -209,6 +221,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_NewRulePath3_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -220,7 +236,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -243,7 +259,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
 
         It 'Should have set the resource and all the parameters should match' {
             $resourceCurrentState = $script:currentConfiguration | Where-Object -FilterScript {
-                $_.ConfigurationName -eq $_ `
+                $_.ConfigurationName -eq $configurationName `
                 -and $_.ResourceId -eq $resourceId
             }
 
@@ -263,6 +279,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_UpdateRulePath1_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -274,7 +294,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -297,7 +317,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
 
         It 'Should have set the resource and all the parameters should match' {
             $resourceCurrentState = $script:currentConfiguration | Where-Object -FilterScript {
-                $_.ConfigurationName -eq $_ `
+                $_.ConfigurationName -eq $configurationName `
                 -and $_.ResourceId -eq $resourceId
             }
 
@@ -318,6 +338,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_UpdateRulePath3_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -329,7 +353,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -352,7 +376,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
 
         It 'Should have set the resource and all the parameters should match' {
             $resourceCurrentState = $script:currentConfiguration | Where-Object -FilterScript {
-                $_.ConfigurationName -eq $_ `
+                $_.ConfigurationName -eq $configurationName `
                 -and $_.ResourceId -eq $resourceId
             }
 
@@ -373,6 +397,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_RemoveRulePath1_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -384,7 +412,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -407,7 +435,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
 
         It 'Should have set the resource and all the parameters should match' {
             $resourceCurrentState = $script:currentConfiguration | Where-Object -FilterScript {
-                $_.ConfigurationName -eq $_ `
+                $_.ConfigurationName -eq $configurationName `
                 -and $_.ResourceId -eq $resourceId
             }
 
@@ -426,6 +454,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_RemoveRulePath2_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -437,7 +469,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
@@ -460,7 +492,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
 
         It 'Should have set the resource and all the parameters should match' {
             $resourceCurrentState = $script:currentConfiguration | Where-Object -FilterScript {
-                $_.ConfigurationName -eq $_ `
+                $_.ConfigurationName -eq $configurationName `
                 -and $_.ResourceId -eq $resourceId
             }
 
@@ -484,6 +516,10 @@ Describe "<dscResourceFriendlyName>_Integration" {
     Context ('When using configuration <_>') -ForEach @(
         "$($script:dscResourceName)_Cleanup_Config"
     ) {
+        BeforeAll {
+            $configurationName = $_
+        }
+
         AfterAll {
             Wait-ForIdleLcm
         }
@@ -496,7 +532,7 @@ Describe "<dscResourceFriendlyName>_Integration" {
                     ConfigurationData    = $ConfigurationData
                 }
 
-                & $_ @configurationParameters
+                & $configurationName @configurationParameters
 
                 $startDscConfigurationParameters = @{
                     Path         = $TestDrive
