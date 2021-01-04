@@ -68,10 +68,13 @@ Pester:
 
 DscTest:
   Pester:
-    Filter:
-      Tag:
-      ExcludeTag:
-        - "Common Tests - New Error-Level Script Analyzer Rules"
+    Configuration:
+      Filter:
+        Tag:
+        ExcludeTag:
+          - "Common Tests - New Error-Level Script Analyzer Rules"
+      Output:
+        Verbosity: Detailed
   Script:
     ExcludeSourceFile:
       - output
