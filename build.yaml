@@ -72,7 +72,7 @@ DscTest:
       Filter:
         Tag:
         ExcludeTag:
-          - "Common Tests - New Error-Level Script Analyzer Rules"
+          - Common Tests - New Error-Level Script Analyzer Rules
       Output:
         Verbosity: Detailed
   Script:
