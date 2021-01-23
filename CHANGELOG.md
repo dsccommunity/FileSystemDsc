@@ -23,6 +23,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added missing MIT LICENSE file.
   - Converted tests to Pester 5.
 
+### Fixed
+
+- FileSystemDsc
+  - The component `gitversion` that is used in the pipeline was wrongly configured
+    when the repository moved to the new default branch `main`. It no longer throws
+    an error when using newer versions of GitVersion.
+
 ## [1.1.1] - 2020-04-19
 
 ### Fixed
