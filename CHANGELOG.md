@@ -22,6 +22,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     or `features`.
   - Added missing MIT LICENSE file.
 
+### Fixed
+
+- FileSystemDsc
+  - The component `gitversion` that is used in the pipeline was wrongly configured
+    when the repository moved to the new default branch `main`. It no longer throws
+    an error when using newer versions of GitVersion.
+
 ## [1.1.1] - 2020-04-19
 
 ### Fixed
