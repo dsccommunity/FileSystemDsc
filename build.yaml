@@ -2,7 +2,7 @@
 ####################################################
 #          ModuleBuilder Configuration             #
 ####################################################
-CopyDirectories:
+CopyPaths:
   - en-US
   - DSCResources
 Encoding: UTF8
@@ -33,6 +33,7 @@ BuildWorkflow:
     - Build_NestedModules_ModuleBuilder
     - Create_changelog_release_output
     - Generate_Conceptual_Help
+    - Generate_Wiki_Content
 
   pack:
     - build
@@ -46,8 +47,9 @@ BuildWorkflow:
     - Pester_if_Code_Coverage_Under_Threshold
 
   publish:
-    - Publish_release_to_GitHub
+    - Publish_Release_To_GitHub
     - publish_module_to_gallery
+    - Publish_GitHub_Wiki_Content
 
 
 ####################################################
@@ -58,7 +60,7 @@ Pester:
   OutputFormat: NUnitXML
   ExcludeFromCodeCoverage:
     - Modules/DscResource.Common
-  Script:
+  Path:
     - tests/Unit
   ExcludeTag:
   Tag:
@@ -81,11 +83,6 @@ DscTest:
     ExcludeModuleFile:
       - Modules/DscResource.Common
     MainGitBranch: main
-
-Resolve-Dependency:
-  Gallery: ''
-  AllowPrerelease: false
-  Verbose: false
 
 ModuleBuildTasks:
   Sampler:

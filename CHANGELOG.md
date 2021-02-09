@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - FileSystemDsc
   - Added issue and pull request templates to help contributors.
+  - Added wiki generation and publish to GitHub repository wiki.
 
 ### Changed
 
@@ -22,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     or `features`.
   - Added missing MIT LICENSE file.
   - Converted tests to Pester 5.
+  - Minor changes to pipeline files.
 
 ### Fixed
 

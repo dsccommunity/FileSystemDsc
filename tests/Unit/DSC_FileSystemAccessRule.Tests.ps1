@@ -27,9 +27,6 @@ AfterAll {
 
     # Unload the module being tested so that it doesn't impact any other tests.
     Get-Module -Name $script:dscResourceName -All | Remove-Module -Force
-
-    # Remove module common test helper.
-    Get-Module -Name 'CommonTestHelper' -All | Remove-Module -Force
 }
 
 
