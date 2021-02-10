@@ -95,7 +95,7 @@ stages:
             displayName: 'Run Unit Test'
             inputs:
               filePath: './build.ps1'
-              arguments: "-Tasks test -PesterScript 'tests/Unit'"
+              arguments: "-Tasks test -PesterPath 'tests/Unit'"
               pwsh: true
           - task: PublishTestResults@2
             displayName: 'Publish Test Results'
@@ -123,7 +123,7 @@ stages:
             displayName: 'Run Unit Test'
             inputs:
               filePath: './build.ps1'
-              arguments: "-Tasks test -PesterScript 'tests/Unit'"
+              arguments: "-Tasks test -PesterPath 'tests/Unit'"
               pwsh: true
           - task: PublishTestResults@2
             displayName: 'Publish Test Results'
@@ -164,7 +164,7 @@ stages:
             displayName: 'Run Integration Test'
             inputs:
               filePath: './build.ps1'
-              arguments: "-Tasks test -PesterScript 'tests/Integration' -CodeCoverageThreshold 0"
+              arguments: "-Tasks test -PesterPath 'tests/Integration' -CodeCoverageThreshold 0"
               pwsh: false
           - task: PublishTestResults@2
             displayName: 'Publish Test Results'
@@ -199,7 +199,7 @@ stages:
             displayName: 'Run Integration Test'
             inputs:
               filePath: './build.ps1'
-              arguments: "-Tasks test -PesterScript 'tests/Integration' -CodeCoverageThreshold 0"
+              arguments: "-Tasks test -PesterPath 'tests/Integration' -CodeCoverageThreshold 0"
               pwsh: false
           - task: PublishTestResults@2
             displayName: 'Publish Test Results'
