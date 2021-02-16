@@ -2,7 +2,7 @@
 ####################################################
 #          ModuleBuilder Configuration             #
 ####################################################
-CopyDirectories:
+CopyPaths:
   - en-US
   - DSCResources
 Encoding: UTF8
@@ -33,21 +33,23 @@ BuildWorkflow:
     - Build_NestedModules_ModuleBuilder
     - Create_changelog_release_output
     - Generate_Conceptual_Help
+    - Generate_Wiki_Content
 
   pack:
     - build
     - package_module_nupkg
 
   hqrmtest:
-    - DscResource_Tests_Stop_On_Fail
+    - Invoke_HQRM_Tests_Stop_On_Fail
 
   test:
     - Pester_Tests_Stop_On_Fail
     - Pester_if_Code_Coverage_Under_Threshold
 
   publish:
-    - Publish_release_to_GitHub
+    - Publish_Release_To_GitHub
     - publish_module_to_gallery
+    - Publish_GitHub_Wiki_Content
 
 
 ####################################################
@@ -58,7 +60,7 @@ Pester:
   OutputFormat: NUnitXML
   ExcludeFromCodeCoverage:
     - Modules/DscResource.Common
-  Script:
+  Path:
     - tests/Unit
   ExcludeTag:
   Tag:
@@ -67,25 +69,27 @@ Pester:
   CodeCoverageOutputFileEncoding: ascii
 
 DscTest:
-  ExcludeTag:
-    - "Common Tests - New Error-Level Script Analyzer Rules"
-  Tag:
-  ExcludeSourceFile:
-    - output
-  ExcludeModuleFile:
-    - Modules/DscResource.Common
-  MainGitBranch: main
-
-
-Resolve-Dependency:
-  Gallery: ''
-  AllowPrerelease: false
-  Verbose: false
+  Pester:
+    Configuration:
+      Filter:
+        Tag:
+        ExcludeTag:
+          - Common Tests - New Error-Level Script Analyzer Rules
+      Output:
+        Verbosity: Detailed
+  Script:
+    ExcludeSourceFile:
+      - output
+    ExcludeModuleFile:
+      - Modules/DscResource.Common
+    MainGitBranch: main
 
 ModuleBuildTasks:
   Sampler:
     - '*.build.Sampler.ib.tasks'
   DscResource.DocGenerator:
+    - 'Task.*'
+  DscResource.Test:
     - 'Task.*'
 
 TaskHeader: |
