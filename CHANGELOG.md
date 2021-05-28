@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Converted tests to Pester 5.
   - Minor changes to pipeline files.
   - Update build configuration to use Pester advanced build configuration.
+  - Update pipeline to user Sampler GitHub tasks.
 
 ### Fixed
 
