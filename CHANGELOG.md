@@ -27,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Update build configuration to use Pester advanced build configuration.
   - Update pipeline to user Sampler GitHub tasks.
   - Update pipeline deploy step to correctly download build artifact.
+  - Update so that HQRM test correctly creates a NUnit file that can be
+    uploaded to Azure Pipelines.
 
 ### Fixed
 
