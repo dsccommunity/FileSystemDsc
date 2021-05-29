@@ -95,6 +95,12 @@ DscTest:
           - Common Tests - New Error-Level Script Analyzer Rules
       Output:
         Verbosity: Detailed
+      TestResult:
+        Enabled: true
+        OutputFormat: NUnitXML
+        OutputPath: ./output/testResults/NUnitXml_FileSystemDsc_HQRM.xml
+        OutputEncoding: UTF-8
+        TestSuiteName: FileSystemDscHQRM
   Script:
     ExcludeSourceFile:
       - output
