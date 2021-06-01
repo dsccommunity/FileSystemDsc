@@ -44,7 +44,7 @@ Describe 'DSC_FileSystemAccessRule\Get-TargetResource' -Tag 'Get' {
         #>
         $mockFileSystemRights = [System.Security.AccessControl.FileSystemRights] @('ReadData', 'WriteAttributes')
 
-        $mockPath = $TestDrive.FullName
+        $mockPath = $TestDrive
 
         $inModuleScopeParameters = @{
             MockPath     = $mockPath

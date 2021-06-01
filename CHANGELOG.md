@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Update pipeline deploy step to correctly download build artifact.
   - Update so that HQRM test correctly creates a NUnit file that can be
     uploaded to Azure Pipelines.
+  - Updated pipeline to use the new faster Pester Code coverage.
 
 ### Fixed
 
@@ -36,6 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - The component `gitversion` that is used in the pipeline was wrongly configured
     when the repository moved to the new default branch `main`. It no longer throws
     an error when using newer versions of GitVersion.
+- FileSystemAccessRule
+  - Unit test was updated to support latest Pester.
 
 ## [1.1.1] - 2020-04-19
 

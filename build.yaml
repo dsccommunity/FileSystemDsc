@@ -77,6 +77,7 @@ Pester:
       OutputPath: JaCoCo_coverage.xml
       OutputEncoding: ascii
       ExcludeTests:
+      UseBreakpoints: false
     TestResult:
       OutputFormat: NUnitXML
       OutputPath:
