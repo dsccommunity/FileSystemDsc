@@ -30,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Update so that HQRM test correctly creates a NUnit file that can be
     uploaded to Azure Pipelines.
   - Updated pipeline to use the new faster Pester Code coverage.
+  - Using the latest Pester preview version in the pipeline to be able to
+    test new Pester functionality.
 
 ### Fixed
 

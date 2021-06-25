@@ -69,7 +69,8 @@ Pester:
       Tag:
       ExcludeTag:
     Output:
-      Verbosity:
+      Verbosity: Detailed
+      CIFormat: Auto
     CodeCoverage:
       Path:
       OutputFormat:
@@ -96,6 +97,7 @@ DscTest:
           - Common Tests - New Error-Level Script Analyzer Rules
       Output:
         Verbosity: Detailed
+        CIFormat: Auto
       TestResult:
         Enabled: true
         OutputFormat: NUnitXML
