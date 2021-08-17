@@ -69,7 +69,9 @@ Pester:
       Tag:
       ExcludeTag:
     Output:
-      Verbosity:
+      Verbosity: Detailed
+      StackTraceVerbosity: Full
+      CIFormat: Auto
     CodeCoverage:
       Path:
       OutputFormat:
@@ -77,10 +79,11 @@ Pester:
       OutputPath: JaCoCo_coverage.xml
       OutputEncoding: ascii
       ExcludeTests:
+      UseBreakpoints: false
     TestResult:
       OutputFormat: NUnitXML
       OutputPath:
-      OutputEncoding:
+      OutputEncoding: ascii
       TestSuiteName:
   # Sampler pipeline configuration
   ExcludeFromCodeCoverage:
@@ -95,6 +98,7 @@ DscTest:
           - Common Tests - New Error-Level Script Analyzer Rules
       Output:
         Verbosity: Detailed
+        CIFormat: Auto
       TestResult:
         Enabled: true
         OutputFormat: NUnitXML
@@ -128,6 +132,7 @@ TaskHeader: |
   Write-Build DarkGray "  $Path"
   Write-Build DarkGray "  $($Task.InvocationInfo.ScriptName):$($Task.InvocationInfo.ScriptLineNumber)"
   ""
+
 GitHubConfig:
   GitHubFilesToAdd:
     - 'CHANGELOG.md'
