@@ -41,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     an error when using newer versions of GitVersion.
 - FileSystemAccessRule
   - Unit test was updated to support latest Pester.
+  - Test was updated to handle that `build.ps1` has not been run.
 
 ## [1.1.1] - 2020-04-19
 
