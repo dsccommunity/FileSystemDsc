@@ -41,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - The component `gitversion` that is used in the pipeline was wrongly configured
     when the repository moved to the new default branch `main`. It no longer throws
     an error when using newer versions of GitVersion.
+  - Fix pipeline to use available build workers.
 - FileSystemAccessRule
   - Unit test was updated to support latest Pester.
   - Test was updated to handle that `build.ps1` has not been run.
