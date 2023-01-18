@@ -186,6 +186,15 @@ class FileSystemObject
             Reasons                  = @()
         }
 
+        if ($this.Type -eq [objectType]::directory -and -not [string]::IsNullOrWhiteSpace($this.Contents))
+        {
+            Write-Verbose -Message "Type is directory, yet parameter Contents was used."
+            $returnable.Reasons += @{
+                Code   = "File:File:ParameterMismatch"
+                Phrase = "Type is directory, yet parameter Contents was used."
+            }
+        }
+
         $object = Get-Item -ErrorAction SilentlyContinue -Path $this.DestinationPath -Force
         if ($null -eq $object -and $this.Ensure -eq [ensure]::present)
         {
