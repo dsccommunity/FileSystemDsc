@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FileSystemDsc
   - Added issue and pull request templates to help contributors.
   - Added wiki generation and publish to GitHub repository wiki.
-  - Fix pipeline to use available build workers.
+  - Added recommended VS Code extensions.
+    - Added settings for VS Code extension _Pester Test Adapter_.
 
 ### Changed
 
@@ -25,6 +26,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added missing MIT LICENSE file.
   - Converted tests to Pester 5.
   - Minor changes to pipeline files.
+  - Update build configuration to use Pester advanced build configuration.
+  - Update pipeline to user Sampler GitHub tasks.
+  - Update pipeline deploy step to correctly download build artifact.
+  - Update so that HQRM test correctly creates a NUnit file that can be
+    uploaded to Azure Pipelines.
+  - Updated pipeline to use the new faster Pester Code coverage.
+  - Using the latest Pester preview version in the pipeline to be able to
+    test new Pester functionality.
 
 ### Fixed
 
@@ -32,6 +41,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - The component `gitversion` that is used in the pipeline was wrongly configured
     when the repository moved to the new default branch `main`. It no longer throws
     an error when using newer versions of GitVersion.
+  - Fix pipeline to use available build workers.
+- FileSystemAccessRule
+  - Unit test was updated to support latest Pester.
+  - Test was updated to handle that `build.ps1` has not been run.
 
 ## [1.1.1] - 2020-04-19
 

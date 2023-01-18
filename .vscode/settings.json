@@ -34,5 +34,8 @@
     ],
     "[markdown]": {
         "files.encoding": "utf8"
-    }
+    },
+    "pester.testFilePath": [
+        "[tT]ests/[uU]nit/*.[tT]ests.[pP][sS]1"
+    ]
 }

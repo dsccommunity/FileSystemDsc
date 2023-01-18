@@ -44,6 +44,7 @@ BuildWorkflow:
 
   test:
     - Pester_Tests_Stop_On_Fail
+    - Convert_Pester_Coverage
     - Pester_if_Code_Coverage_Under_Threshold
 
   publish:
@@ -57,16 +58,36 @@ BuildWorkflow:
 ####################################################
 
 Pester:
-  OutputFormat: NUnitXML
+  # Pester Advanced configuration.
+  # If a key is not set it will be using Sampler pipeline default value.
+  Configuration:
+    Run:
+      Path:
+        - tests/Unit
+      ExcludePath:
+    Filter:
+      Tag:
+      ExcludeTag:
+    Output:
+      Verbosity: Detailed
+      StackTraceVerbosity: Full
+      CIFormat: Auto
+    CodeCoverage:
+      Path:
+      OutputFormat:
+      CoveragePercentTarget: 85
+      OutputPath: JaCoCo_coverage.xml
+      OutputEncoding: ascii
+      ExcludeTests:
+      UseBreakpoints: false
+    TestResult:
+      OutputFormat: NUnitXML
+      OutputPath:
+      OutputEncoding: ascii
+      TestSuiteName:
+  # Sampler pipeline configuration
   ExcludeFromCodeCoverage:
     - Modules/DscResource.Common
-  Path:
-    - tests/Unit
-  ExcludeTag:
-  Tag:
-  CodeCoverageThreshold: 85
-  CodeCoverageOutputFile: JaCoCo_coverage.xml
-  CodeCoverageOutputFileEncoding: ascii
 
 DscTest:
   Pester:
@@ -77,6 +98,13 @@ DscTest:
           - Common Tests - New Error-Level Script Analyzer Rules
       Output:
         Verbosity: Detailed
+        CIFormat: Auto
+      TestResult:
+        Enabled: true
+        OutputFormat: NUnitXML
+        OutputPath: ./output/testResults/NUnitXml_FileSystemDsc_HQRM.xml
+        OutputEncoding: UTF-8
+        TestSuiteName: FileSystemDscHQRM
   Script:
     ExcludeSourceFile:
       - output
@@ -87,6 +115,8 @@ DscTest:
 ModuleBuildTasks:
   Sampler:
     - '*.build.Sampler.ib.tasks'
+  Sampler.GitHubTasks:
+    - '*.ib.tasks'
   DscResource.DocGenerator:
     - 'Task.*'
   DscResource.Test:
@@ -102,6 +132,7 @@ TaskHeader: |
   Write-Build DarkGray "  $Path"
   Write-Build DarkGray "  $($Task.InvocationInfo.ScriptName):$($Task.InvocationInfo.ScriptLineNumber)"
   ""
+
 GitHubConfig:
   GitHubFilesToAdd:
     - 'CHANGELOG.md'

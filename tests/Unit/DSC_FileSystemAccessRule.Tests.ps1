@@ -1,7 +1,4 @@
-BeforeAll {
-    $script:dscModuleName = 'FileSystemDsc'
-    $script:dscResourceName = 'DSC_FileSystemAccessRule'
-
+BeforeDiscovery {
     try
     {
         Import-Module -Name DscResource.Test -Force -ErrorAction 'Stop'
@@ -10,6 +7,11 @@ BeforeAll {
     {
         throw 'DscResource.Test module dependency not found. Please run ".\build.ps1 -Tasks build" first.'
     }
+}
+
+BeforeAll {
+    $script:dscModuleName = 'FileSystemDsc'
+    $script:dscResourceName = 'DSC_FileSystemAccessRule'
 
     $script:testEnvironment = Initialize-TestEnvironment `
         -DSCModuleName $script:dscModuleName `
@@ -33,7 +35,6 @@ AfterAll {
     Get-Module -Name $script:dscResourceName -All | Remove-Module -Force
 }
 
-
 Describe 'DSC_FileSystemAccessRule\Get-TargetResource' -Tag 'Get' {
     BeforeAll {
         $mockIdentity = 'NT AUTHORITY\NETWORK SERVICE'
@@ -44,7 +45,7 @@ Describe 'DSC_FileSystemAccessRule\Get-TargetResource' -Tag 'Get' {
         #>
         $mockFileSystemRights = [System.Security.AccessControl.FileSystemRights] @('ReadData', 'WriteAttributes')
 
-        $mockPath = $TestDrive.FullName
+        $mockPath = $TestDrive
 
         $inModuleScopeParameters = @{
             MockPath     = $mockPath
