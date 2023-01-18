@@ -14,6 +14,12 @@ First release.
 
 #Requires -Module FileSystemDsc
 
+<#
+
+.DESCRIPTION
+ Sample to create a file with contents.
+
+#>
 Configuration FileSystemObject_CreateFileWithContent_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
