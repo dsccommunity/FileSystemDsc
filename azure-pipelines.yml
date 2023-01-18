@@ -22,14 +22,17 @@ stages:
       - job: Package_Module
         displayName: 'Package Module'
         pool:
-          vmImage: 'ubuntu 16.04'
+          vmImage: 'windows-latest'
         steps:
-          - task: GitVersion@5
-            name: gitVersion
-            displayName: 'Evaluate Next Version'
-            inputs:
-              runtime: 'core'
-              configFilePath: 'GitVersion.yml'
+          - pwsh: |
+              dotnet tool install --global GitVersion.Tool
+              $gitVersionObject = dotnet-gitversion | ConvertFrom-Json
+              $gitVersionObject.PSObject.Properties.ForEach{
+                  Write-Host -Object "Setting Task Variable '$($_.Name)' with value '$($_.Value)'."
+                  Write-Host -Object "##vso[task.setvariable variable=$($_.Name);]$($_.Value)"
+              }
+              Write-Host -Object "##vso[build.updatebuildnumber]$($gitVersionObject.FullSemVer)"
+            displayName: Calculate ModuleVersion (GitVersion)
           - task: PowerShell@2
             name: package
             displayName: 'Build & Package Module'
@@ -38,7 +41,7 @@ stages:
               arguments: '-ResolveDependency -tasks pack'
               pwsh: true
             env:
-              ModuleVersion: $(gitVersion.InformationalVersion)
+              ModuleVersion: $(NuGetVersionV2)
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Build Artifact'
             inputs:
@@ -52,7 +55,7 @@ stages:
       - job: Test_HQRM
         displayName: 'HQRM'
         pool:
-          vmImage: 'windows-2019'
+          vmImage: 'windows-latest'
         timeoutInMinutes: 0
         steps:
           - task: DownloadBuildArtifacts@0
@@ -77,10 +80,10 @@ stages:
               testResultsFiles: 'output/testResults/NUnit*.xml'
               testRunTitle: 'HQRM'
 
-      - job: Test_Unit_2016
-        displayName: 'Unit Win2016'
+      - job: Test_Unit_2022
+        displayName: 'Unit Win2022'
         pool:
-          vmImage: 'vs2017-win2016'
+          vmImage: 'windows-2022'
         timeoutInMinutes: 0
         steps:
           - task: DownloadBuildArtifacts@0
@@ -139,10 +142,10 @@ stages:
               artifactName: $(testArtifactName)
               publishLocation: 'Container'
 
-      - job: Test_Integration_2016
-        displayName: 'Integration Win2016'
+      - job: Test_Integration_2022
+        displayName: 'Integration Win2022'
         pool:
-          vmImage: 'vs2017-win2016'
+          vmImage: 'windows-2022'
         timeoutInMinutes: 0
         steps:
           - task: DownloadBuildArtifacts@0
@@ -213,7 +216,7 @@ stages:
         displayName: 'Publish Code Coverage'
         dependsOn: Test_Unit_2019
         pool:
-          vmImage: 'ubuntu 16.04'
+          vmImage: 'ubuntu-latest'
         timeoutInMinutes: 0
         steps:
           - pwsh: |
@@ -263,7 +266,7 @@ stages:
       - job: Deploy_Module
         displayName: 'Deploy Module'
         pool:
-          vmImage: 'ubuntu 16.04'
+          vmImage: 'ubuntu-latest'
         steps:
           - task: DownloadBuildArtifacts@0
             displayName: 'Download Build Artifact'

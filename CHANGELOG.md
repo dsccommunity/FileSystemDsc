@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FileSystemDsc
   - Added issue and pull request templates to help contributors.
   - Added wiki generation and publish to GitHub repository wiki.
+  - Fix pipeline to use available build workers.
 
 ### Changed
 
