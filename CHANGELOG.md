@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added wiki generation and publish to GitHub repository wiki.
   - Added recommended VS Code extensions.
     - Added settings for VS Code extension _Pester Test Adapter_.
+  - New File resource added to enable cross-platform file operations.
 
 ### Changed
 
