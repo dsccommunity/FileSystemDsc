@@ -1,40 +1,3 @@
-
-enum ensure
-{
-    present
-    absent
-}
-
-enum objectType
-{
-    file
-    directory
-    symboliclink
-}
-enum linkBehavior
-{
-    follow
-    manage
-}
-enum checksumType
-{
-    md5
-    mtime
-    ctime
-}
-
-enum encoding
-{
-    ASCII
-    Latin1
-    UTF7
-    UTF8
-    UTF32
-    BigEndianUnicode
-    Default
-    Unicode
-}
-
 class FileSystemDscReason
 {
     [DscProperty()]
@@ -193,6 +156,7 @@ class FileSystemObject
                 Code   = "File:File:ParameterMismatch"
                 Phrase = "Type is directory, yet parameter Contents was used."
             }
+            return [FileSystemObject]$returnable
         }
 
         $object = Get-Item -ErrorAction SilentlyContinue -Path $this.DestinationPath -Force
