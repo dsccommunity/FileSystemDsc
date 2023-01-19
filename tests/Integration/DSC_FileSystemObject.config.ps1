@@ -7,7 +7,7 @@ $null = New-Item -ItemType Directory -Path $tempDirDestination -ErrorAction Sile
     .SYNOPSIS
         Create empty directory
 #>
-configuration DSC_FileSystemObject_EmptyDir
+configuration DSC_FileSystemObject_EmptyDir_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -30,7 +30,7 @@ configuration DSC_FileSystemObject_EmptyDir
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_EmptyFile
+configuration DSC_FileSystemObject_EmptyFile_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -53,7 +53,7 @@ configuration DSC_FileSystemObject_EmptyFile
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_CreateFile
+configuration DSC_FileSystemObject_CreateFile_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -78,7 +78,7 @@ configuration DSC_FileSystemObject_CreateFile
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_CopyFile
+configuration DSC_FileSystemObject_CopyFile_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -103,7 +103,7 @@ configuration DSC_FileSystemObject_CopyFile
         This requires that the temporary dir was created in the very first test
         and that files were created in previous tests
 #>
-configuration DSC_FileSystemObject_CopyFileWildcard
+configuration DSC_FileSystemObject_CopyFileWildcard_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -128,7 +128,7 @@ configuration DSC_FileSystemObject_CopyFileWildcard
         This requires that the temporary dir was created in the very first test
         and files were created in previous tests
 #>
-configuration DSC_FileSystemObject_CopyDir
+configuration DSC_FileSystemObject_CopyDir_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -152,7 +152,7 @@ configuration DSC_FileSystemObject_CopyDir
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_CopyDirWildcard
+configuration DSC_FileSystemObject_CopyDirWildcard_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -176,7 +176,7 @@ configuration DSC_FileSystemObject_CopyDirWildcard
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_CopyDirRecurse
+configuration DSC_FileSystemObject_CopyDirRecurse_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -201,7 +201,7 @@ configuration DSC_FileSystemObject_CopyDirRecurse
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_CopyDirRecurseWildcard
+configuration DSC_FileSystemObject_CopyDirRecurseWildcard_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -236,7 +236,7 @@ configuration DSC_FileSystemObject_CopyDirRecurseWildcard
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_RemoveFile
+configuration DSC_FileSystemObject_RemoveFile_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -259,7 +259,7 @@ configuration DSC_FileSystemObject_RemoveFile
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_RemoveFileWildcard
+configuration DSC_FileSystemObject_RemoveFileWildcard_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
@@ -282,7 +282,7 @@ configuration DSC_FileSystemObject_RemoveFileWildcard
     .NOTES
         This requires that the temporary dir was created in the very first test
 #>
-configuration DSC_FileSystemObject_RemoveDirRecurse
+configuration DSC_FileSystemObject_RemoveDirRecurse_Config
 {
     Import-DscResource -ModuleName FileSystemDsc
 
