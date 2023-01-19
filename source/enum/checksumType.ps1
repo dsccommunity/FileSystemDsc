@@ -1,6 +1,6 @@
 enum checksumType
 {
     md5
-    mtime
-    ctime
+    LastModifiedTime
+    CreationTime
 }

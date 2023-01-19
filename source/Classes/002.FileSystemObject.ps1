@@ -30,7 +30,7 @@ class FileSystemDscReason
         The file contents. Unused if type is directory
 
     .PARAMETER Checksum
-        The type of checksum to use for copy operations. Values: md5, ctime, mtime. Default: md5
+        The type of checksum to use for copy operations. Values: md5, CreationTime, LastModifiedTime. Default: md5
 
     .PARAMETER Recurse
         Indicates that recurse should be used if data is copied.
@@ -212,7 +212,7 @@ class FileSystemObject
             $returnable.Contents = $returnable.Contents.Trim()
         }
 
-        if ($this.Contents -and $returnable.Contents -ne $this.Contents)
+        if (-not [string]::IsNullOrWhiteSpace($this.Contents) -and $returnable.Contents -ne $this.Contents)
         {
             $returnable.Reasons += @{
                 Code   = "File:File:ContentMismatch"
@@ -363,7 +363,7 @@ class FileSystemObject
                 }
                 @{
                     Name       = 'Hash'
-                    Expression = { if ($Type -eq 'ctime')
+                    Expression = { if ($Type -eq 'CreationTime')
                         {
                             $_.CreationTime
                         }
