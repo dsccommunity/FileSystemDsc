@@ -24,6 +24,9 @@ BeforeAll {
     $script:dscModuleName = 'FileSystemDsc'
     $script:dscResourceFriendlyName = 'FileSystemObject'
     $script:dscResourceName = "DSC_$($script:dscResourceFriendlyName)"
+    $script:temproot = Join-Path -Path ([io.Path]::GetTempPath()) -ChildPath DscFileIntTest
+    $script:tempdir = Join-Path -Path $temproot -ChildPath Source
+    $script:tempDirDestination = Join-Path -Path $temproot -ChildPath Destination
 
     $script:testEnvironment = Initialize-TestEnvironment `
         -DSCModuleName $script:dscModuleName `
