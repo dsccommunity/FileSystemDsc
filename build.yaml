@@ -7,7 +7,7 @@ CopyPaths:
   - DSCResources
 Encoding: UTF8
 VersionedOutputDirectory: true
-BuiltModuleSubDirectory: Module
+BuiltModuleSubDirectory: module
 
 ####################################################
 #   ModuleBuilder Dependent Modules Configuration  #
@@ -76,7 +76,7 @@ Pester:
     CodeCoverage:
       Path:
       OutputFormat:
-      CoveragePercentTarget: 50
+      CoveragePercentTarget: 85
       OutputPath: JaCoCo_coverage.xml
       OutputEncoding: ascii
       ExcludeTests:
