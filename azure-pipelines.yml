@@ -10,12 +10,14 @@ trigger:
     - "v*"
     exclude:
     - "*-*"
+
 variables:
   buildFolderName: output
   buildArtifactName: output
   testResultFolderName: testResults
   testArtifactName: testResults
   sourceFolderName: source
+  Agent.Source.Git.ShallowFetchDepth: 0
 
 stages:
   - stage: Build
