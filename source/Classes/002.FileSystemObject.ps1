@@ -113,7 +113,7 @@ class FileSystemObject
     $CreatedDate
 
     [DscProperty(NotConfigurable)]
-    [System.DateTim]
+    [System.DateTime]
     $ModifiedDate
 
     [DscProperty()]
