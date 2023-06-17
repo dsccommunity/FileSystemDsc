@@ -1,4 +1,4 @@
-enum encoding
+enum Encoding
 {
     ASCII
     Latin1

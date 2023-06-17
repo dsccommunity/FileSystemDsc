@@ -1,6 +1,6 @@
-enum checksumType
+enum ChecksumType
 {
-    md5
+    MD5
     LastModifiedTime
     CreationTime
 }

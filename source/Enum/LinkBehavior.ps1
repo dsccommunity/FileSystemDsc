@@ -1,0 +1,5 @@
+enum LinkBehavior
+{
+    Follow
+    Manage
+}

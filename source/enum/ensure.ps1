@@ -1,6 +1,0 @@
-enum ensure
-{
-    present
-    absent
-}
-

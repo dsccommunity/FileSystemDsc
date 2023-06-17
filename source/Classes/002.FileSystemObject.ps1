@@ -20,6 +20,7 @@ class FileSystemDscReason
 
     .PARAMETER SourcePath
         If data should be copied, the source path to copy from.
+
     .PARAMETER Ensure
         Indicates if destination should be created or removed. Values: Absent, Present. Default: Present.
 
@@ -60,67 +61,67 @@ class FileSystemDscReason
 class FileSystemObject
 {
     [DscProperty(Key)]
-    [string]
+    [System.String]
     $DestinationPath
 
     [DscProperty()]
-    [string]
+    [System.String]
     $SourcePath
 
     [DscProperty()]
-    [ensure]
-    $Ensure = [ensure]::present
+    [Ensure]
+    $Ensure = [Ensure]::Present
 
     [DscProperty()]
-    [objectType]
-    $Type = [objectType]::directory
+    [ObjectType]
+    $Type = [ObjectType]::Directory
 
     [DscProperty()]
-    [string]
+    [System.String]
     $Contents
 
     [DscProperty()]
-    [checksumType]
-    $Checksum = [checksumType]::md5
+    [ChecksumType]
+    $Checksum = [ChecksumType]::MD5
 
     [DscProperty()]
-    [bool]
+    [System.Boolean]
     $Recurse = $false
 
     [DscProperty()]
-    [bool]
+    [System.Boolean]
     $Force = $false
 
     [DscProperty()]
-    [linkBehavior]
-    $Links = [linkBehavior]::follow
+    [LinkBehavior]
+    $Links = [LinkBehavior]::Follow
 
     [DscProperty()]
-    [string]
+    [System.String]
     $Group
 
     [DscProperty()]
-    [string]
+    [System.String]
     $Mode
 
     [DscProperty()]
-    [string]
+    [System.String]
     $Owner
 
     [DscProperty(NotConfigurable)]
-    [datetime]
+    [System.DateTime]
     $CreatedDate
 
     [DscProperty(NotConfigurable)]
-    [datetime]
+    [System.DateTim]
     $ModifiedDate
 
     [DscProperty()]
-    [encoding]
+    [Encoding]
     $Encoding = 'Default'
 
     [DscProperty()]
-    [bool]
+    [System.Boolean]
     $IgnoreTrailingWhitespace
 
     [DscProperty(NotConfigurable)]
