@@ -35,6 +35,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Using the latest Pester preview version in the pipeline to be able to
     test new Pester functionality.
   - Updated build pipeline files.
+  - Removed `windows-2019` pipeline image fixes [#26](https://github.com/dsccommunity/FileSystemDsc/issues/26).
+  - Update build and resolve dependency scripts.
+  - Move documentation to separate docs task.
 
 ### Fixed
 

@@ -17,7 +17,10 @@
     'DscResource.Test'          = 'latest'
     'DscResource.AnalyzerRules' = 'latest'
     xDscResourceDesigner        = 'latest'
-    'DscResource.DocGenerator'  = 'latest'
     'DscResource.Common'        = 'latest'
+
+    # Prerequisite modules for documentation.
+    'DscResource.DocGenerator'  = 'latest'
+    PlatyPS                     = 'latest'
 }
 
