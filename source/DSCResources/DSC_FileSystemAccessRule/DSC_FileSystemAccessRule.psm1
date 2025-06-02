@@ -267,7 +267,7 @@ function Set-TargetResource
         {
             $errorMessage = $script:localizedData.NoRightsWereSpecified -f $Identity, $Path
 
-            New-InvalidArgumentException -ArgumentName 'Rights' -Message $errorMessage
+            New-ArgumentException -ArgumentName 'Rights' -Message $errorMessage
         }
 
         Write-Verbose -Message (
@@ -531,7 +531,7 @@ function Test-TargetResource
             {
                 $errorMessage = $script:localizedData.NoRightsWereSpecified -f $Identity, $Path
 
-                New-InvalidArgumentException -ArgumentName 'Rights' -Message $errorMessage
+                New-ArgumentException -ArgumentName 'Rights' -Message $errorMessage
             }
 
             <#

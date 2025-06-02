@@ -345,7 +345,7 @@ Describe 'DSC_FileSystemAccessRule\Get-TargetResource' -Tag 'Get' {
                 It 'Should return the correct values for the rest of the properties' {
                     InModuleScope -ScriptBlock {
                         $script:mockGetTargetResourceResult.Rights | Should -HaveCount 2
-                        $script:mockGetTargetResourceResult.Rights | Should -Contain 'ReadData'
+                        $script:mockGetTargetResourceResult.Rights | Should -Contain 'ListDirectory'
                         $script:mockGetTargetResourceResult.Rights | Should -Contain 'WriteAttributes'
                         $script:mockGetTargetResourceResult.IsActiveNode | Should -BeTrue
                     }

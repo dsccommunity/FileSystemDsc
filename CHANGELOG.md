@@ -35,6 +35,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Using the latest Pester preview version in the pipeline to be able to
     test new Pester functionality.
   - Updated build pipeline files.
+  - Removed `windows-2019` pipeline image fixes [#26](https://github.com/dsccommunity/FileSystemDsc/issues/26).
+  - Update build and resolve dependency scripts.
+  - Move documentation to separate docs task.
 
 ### Fixed
 
@@ -46,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FileSystemAccessRule
   - Unit test was updated to support latest Pester.
   - Test was updated to handle that `build.ps1` has not been run.
+  - Fix test error on 2022/2025 builds.
 
 ## [1.1.1] - 2020-04-19
 
